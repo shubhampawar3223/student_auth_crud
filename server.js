@@ -21,7 +21,7 @@ app.use('/students',validateUser, students)
 
 function validateUser(req, res, next){
     try{
-        const token =req.header('Authorization').replace('Bearer', '')
+        const token =req.header('Authorization').replace('Bearer ', '')
         console.log(token)
         const data = jwt.verify(token, process.env.JWT_KEY)
         if(!data){
